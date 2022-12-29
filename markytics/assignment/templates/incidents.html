@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}Report{% endblock title %}
+{% block content %}
+<center>
+  <div style="display:inline-block; margin: 5px;width: 700px;height:700px;">
+ <form action="incident" method="post">
+    {% csrf_token %}
+        <fieldset>
+            <legend><h4> New Master Incident :</h4></legend>
+                <h5>initial Reporting :</h5><br>
+            <table>
+            <tr>
+                <td><label for="location">Location:</label></td>
+                <td><select id="location" name="location">
+                        <option value="c.headoffice">corporate headoffice</option>
+                        <option value="office">Office</option>
+                        <option value="delhi">delhi</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="idepart">incident Department</label></td>
+                <td><input type="text" id="idepart" name="idepart"></td>
+            </tr>
+            <tr>
+                <td><label for="date">Date and Time OF<br> incident</label></td>
+                <td><input type="date" id="date" name="date">
+                    <input type="time" id="time" name="time"></td>
+            </tr>
+            <tr>
+                <td><label for="ilocation">incident Location</label></td>
+                <td><input type="text" id="ilocation" name="ilocation"></td>
+            </tr>
+            <tr>
+                <td><label for="severity">initial Severity</label></td>
+                <td> <select id="severity" name="severity">
+                        <option value="mild"><Meta>Mild</Meta></option>
+                        <option value="moderate">moderate</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="cause">Suspected Cause</label></td>
+                <td><input type="text" id="cause" name="cause"><br></td>
+            </tr>
+            <tr>
+                <td><label for="action">immediate action take</label></td>
+                <td><input type="text" id="action" name="action"><br></td>
+            </tr>
+            <tr>
+                <td><label for="type">Sub incident type</label></td>
+                <td><input type="checkbox" id="type" name="check" valur="en.i">Environmental incident <br>
+                    <input type="checkbox" id="type" name="check" value="ill" >injury/illness <br>
+                    <input type="checkbox" id="type" name="check" value="pro" >property Damage <br>
+                    <input type="checkbox" id="type" name="check" value="vehicle">Vehicle 
+                    
+                </td>
+            </tr>
+            {% if request.session.name %}
+            <tr>
+                <td><label for="user">Reported By:</label></td>
+                
+                <td><input type="text" id="user" value={{request.session.name}} name="user"></td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td>
+                    <button class="btn btn-outline-success m-5" type="submit">Data Save</button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    </form>
+      </div>
+    </center>
+
+
+{% endblock content %}

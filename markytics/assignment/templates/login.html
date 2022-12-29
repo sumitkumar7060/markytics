@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}login{% endblock title %}
+{% block content %}
+<center>
+  <div style="display:inline-block; margin: 5px;width: 700px;height:700px;">
+             <div class="container bg-active">
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <h4>Login Form</h4><br><br>
+                    <label for="username">Username:</label>
+                    <input type="email" id="username" name="email"><br><br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="pass"><br>
+                    <button class="btn btn-outline-success m-3" type="submit">Login</button>
+
+                </form>
+            </div> 
+    </div>
+    </center>
+
+
+{% endblock content %}

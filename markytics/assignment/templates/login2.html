@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+user login
+{% endblock title %}
+{% block content %}
+
+<div class="container my-4">
+    <p style="color:green;padding: 5px;">Success:You are now logged in. </p>
+    <h3>{{request.session.name}}!</h3>
+    <p style="padding: 5px 0px 0px 5px;">One can log in and report an incident and view saved incidents.</p>
+    <p style="padding: 5px;">Admin can view this forms.</p>
+
+</div>
+
+{% endblock content %}
